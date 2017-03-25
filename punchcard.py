@@ -140,6 +140,10 @@ class Chart(sizers.Box):
         size = self.model.cell_size
         lo = min(x for row in data for x in row if x)
         hi = max(x for row in data for x in row if x)
+        
+        if hi == lo:
+            lo = 0.
+            
         min_area = pi * (self.model.min_size / 2.0) ** 2
         max_area = pi * (self.model.max_size / 2.0) ** 2
         min_color = self.model.min_color
